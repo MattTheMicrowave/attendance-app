@@ -15,6 +15,10 @@
     </form>
 
     <ul>
+      <% for (student in students) { %>
+        <li><%= student%>: <%=students[student] %></li>
+
+      <% } %>
 
     </ul>
   </body>

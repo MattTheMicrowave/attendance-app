@@ -1,14 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var students = [];
+var students = {};
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', students: students });
 });
 
 router.post('/attendance', function(req, res, next) {
-students.push(req.body.student);
+var name = req.body.student;
+    if (students[name]) {
+        students[name] += 1;
+    } else {
+      students[name] = 1;
+
+
+    }
   res.redirect('/');
 });
 
